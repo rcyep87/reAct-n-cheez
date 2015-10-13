@@ -3,10 +3,24 @@
 <head>
   <title>ReActNCheese</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+  <nav>
+    <div class="nav-wrapper blue-grey">
+      <a href="#!" class="brand-logo">cheeZiT</a>
+      <ul class="right hide-on-med-and-down">
+        <% if user_logged_in? %>
+          <li><%= link_to('Logout', logout_path, method: :DELETE) %></li>
+        <% else %>
+          <li><%= link_to 'Create Account', new_user_path %></li>
+          <li><%= link_to 'Login', new_login_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+
   <% if notice %>
     <div class="alert alert-warning alert-dismissible" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -19,7 +33,20 @@
       <p class="alert"><%= alert %></p>
     </div>
   <% end %>
-<%= yield %>
+  <div class='row'>
+    <div class='col-md-9'>
+      <%= yield %>
+    </div>
+  <div class='col-md-3'>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
 </body>
+<!-- <footer class="page-footer blue-grey">
+  <div class="footer-copyright">
+    <div class="container">
+    © 2015 Copyright Text
+    <a class="grey-text blue-grey right" </a>
+    </div>
+  </div>
+</footer> -->
 </html>
