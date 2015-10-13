@@ -62,6 +62,14 @@ class CheesesController < ApplicationController
     end
   end
 
+  def favorite
+    @favorite = Favorite.create({
+        cheese_id: params[:id],
+        user_id:   current_user.id
+      })
+    redirect_to cheeses_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cheese

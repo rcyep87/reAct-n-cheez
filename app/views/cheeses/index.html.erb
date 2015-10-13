@@ -15,6 +15,7 @@
     <% @cheeses.each do |cheese| %>
       <tr>
         <td><%= link_to("#{cheese.name}", cheese) %></td>
+        <td><%= link_to("Favorite", cheese, method: :favorite) %></td>
         <!-- <td><%= link_to 'Show', cheese %></td>
         <td><%= link_to 'Edit', edit_cheese_path(cheese) %></td>
         <td><%= link_to 'Destroy', cheese, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
