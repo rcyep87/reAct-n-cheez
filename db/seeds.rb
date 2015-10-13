@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+%w(American Swiss Cheddar Provolone Mexican Blue Parmesan Romano
+   Monterey-Jack Mozzarella Queso-Blanco).each do |cheese_name|
+  Cheese.create(name: cheese_name)
+end
