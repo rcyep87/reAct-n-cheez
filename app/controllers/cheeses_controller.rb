@@ -63,6 +63,7 @@ class CheesesController < ApplicationController
   end
 
   def favorite
+    @all_fav = Favorite.all
     @favorite = Favorite.create({
         cheese_id: params[:id],
         user_id:   current_user.id
